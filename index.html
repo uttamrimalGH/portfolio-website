@@ -1,76 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uttam Rimal</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Portfolio</title>
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet"/>
+    <!-- Inside your <head> tag -->
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+
 </head>
 <body>
-  <header>
-    <h1>Uttam Rimal</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
- 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>Welcome to My Creative Space!</h1>
-      <p>Hi, I'm Uttam Rimal, a passionate Video Editor and Graphic Designer. With a knack for storytelling and an eye for detail, I bring ideas to life through my designs and edits. Explore my portfolio to see my work, and feel free to reach out for collaborations or projects. Let's create something amazing together!</p>
-  </section>
-
-  <section id="portfolio" class="section">
-    <h2>Portfolio</h2>
- 
-  
-     Make your own Brand Identity
-    <div class="portfolio-item">
-      <img src="Projects/ur.jpg" alt="Portfolio Item 1">
-      
-      <h3><a href="#contact"> Hire Me</a></h3>
-      <p>I am a Graphic Designer and Video Editor. I can help you in making visually appealing Design, Reels and Videos.</p>
-    </div>
-    <div class="portfolio-item">
-      <img src="Projects/ecommerce1.png" alt="Portfolio Item 2">
-      <h3>Ecommerce Design</h3>
-      <p>I design this for a Tshirt Product so that I can sell it on Daraz.</p>
-    </div>
-    <div class="portfolio-item">
-      <img src="Projects/Nike.jpg" alt="Portfolio Item 3">
-      <h3>Project 2</h3>
-      <p>I made this for Nike Shoes Product Design.</p>
-    </div>
-    <div class="portfolio-item">
-      <img src="Projects/mobile.jpg" alt="Portfolio Item 4">
-      <h3>Nothing Phone Product Design</h3>
-      <p>I designed this for Nothing Phone Product Design.</p>
-    </div>
+    <header>
+        
+        <div class="dropdown">
+            <button onclick="toggleDropdown()" class="dropbtn">Menu</button>
+            <div id="myDropdown" class="dropdown-content">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#work">My Work</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        
+        
+    </header>
    
-    <!-- Add more portfolio items as needed -->
-  </section>
+     <!-- About Me -->
+     <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Welcome to My Creative Space!</h1>
+          <p>Hi, I'm Uttam Rimal, a passionate Video Editor and Graphic Designer. </p>
+      </section>
+    <!-- Rest of your content -->
+    <div class="container">
+        <div class="profile">
+            <img src="/Images/Profile photo.png" alt="Your Photo">
+            
+        </div>
+        <div class="text">
+            <p>I am Uttam Rimal.</p>
+            <!-- Text Animation in Body tag-->
+          <p><span id="typed-text"></span></p>
+        
+          <script>
+              const typed = new Typed('#typed-text', {
+                  strings: ["I'm a Web Developer", "I'm a Web Designer", "I'm a Graphic Designer", "I'm a Youtuber", "I'm a Video Editor"],
+                  typeSpeed: 50,
+                  loop: true,
+              });
+          </script>
+        </div>
+        <div class="social-links">
+            <a href="https://facebook.com"><img src="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-social-media-by-vexels.png" alt="Facebook"></a>
+            <a href="https://twitter.com"><img src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png" alt="Twitter"></a>
+            <a href="https://instagram.com"><img src="https://th.bing.com/th/id/R.735dda68880a385ce8cc5be4f3c5fcd6?rik=qSxRw2lCZYy9Mw&riu=http%3a%2f%2fpngimg.com%2fuploads%2finstagram%2finstagram_PNG11.png&ehk=QVCbfkCKi8pJLF08bRkS%2fLeMqLTnJQf402WRaIdN6jE%3d&risl=&pid=ImgRaw&r=0" alt="Instagram"></a>
+            <a href="https://youtube.com"><img src="https://th.bing.com/th/id/OIP.PvStOe1KB0YXnmrWdXwa8QHaHa?rs=1&pid=ImgDetMain" alt="YouTube"></a>
+        </div>
+        <button class="hire-button">Hire Me</button>
+        <button class="contact-button">Contact</button>
+        
+    
+    </div>
+    
+    
 
-  <section id="contact" class="section">
+    
+   
+<!-- My Services -->
+<section class="services">
+    <h2>My Services</h2>
+    <div class="service-row">
+        <div class="service">
+            <img src="https://th.bing.com/th/id/OIP.IhGijgoVTEs0_4rPuUXboQHaE8?rs=1&pid=ImgDetMain" alt="Web Development">
+            <p>Web Development</p>
+        </div>
+        <div class="service">
+            <img src="https://th.bing.com/th/id/R.cc67107d3714f5a7a845c162e3345af6?rik=Q3GYQM%2bLAJjD8g&riu=http%3a%2f%2fimages.huffingtonpost.com%2f2016-09-22-1474505349-8662319-WebDesign.jpg&ehk=xTKYvGJKOWd7YJLXdxG%2bqtzh6mYUinXWus4kNhimO8g%3d&risl=&pid=ImgRaw&r=0" alt="Web Designing">
+            <p>Web Designing</p>
+        </div>
+        <div class="service">
+            <img src="https://icon-library.com/images/icon-png-logos/icon-png-logos-7.jpg" alt="Logo Design">
+            <p>Logo Design</p>
+        </div>
+        <div class="service">
+            <img src="https://th.bing.com/th/id/OIP.VFevEEE-1QC6g675fmWylAAAAA?rs=1&pid=ImgDetMain" alt="Reel Advertisement">
+            <p>Reel Advertisement</p>
+        </div>
+        <div class="service">
+            <img src="https://flick.ae/wp-content/uploads/img/services/Post%20production/Video%20Editing.jpeg" alt="Video Editing">
+            <p>Video Editing</p>
+        </div>
+        <div class="service">
+            <img src="https://i2.wp.com/www.easycreativesolutions.com/home/wp-content/uploads/2015/09/kevcfgcottjxvbwxrkci-1.jpg?fit=1920%2C1200&ssl=1" alt="Graphic Design">
+            <p>Graphic Design</p>
+        </div>
+    </div>
+    <!-- Additional services can be added here -->
+</section>
+<!-- My Work -->
+  <section class="work">
+    <h2>My Work</h2>
+    <div class="works">
+        <div class="work-item">
+            <img src="/Projects/ur.jpg" alt="Project 1">
+            <div class="overlay">
+                <p>I am a Graphic Designer and Video Editor. I can help you in making visually appealing Design, Reels and Videos.</p>
+                <button class="see-more-button">See More</button>
+            </div>
+        </div>
+        <div class="work-item">
+            <img src="/Projects/ecommerce1.png" alt="Project 2">
+            <div class="overlay">
+                <p>I design this for a Tshirt Product so that I can sell it on Daraz.</p>
+                <button class="see-more-button">See More</button>
+            </div>
+        </div>
+        <div class="work-item">
+            <img src="/Projects/Nike.jpg" alt="Project 1">
+            <div class="overlay">
+                <p>I made this for Nike Shoes Product Design.</p>
+                <button class="see-more-button">See More</button>
+            </div>
+        </div>
+        <div class="work-item">
+            <img src="/Projects/mobile.jpg" alt="Project 1">
+            <div class="overlay">
+                <p>I designed this for Nothing Phone Product Design.</p>
+                <button class="see-more-button">See More</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Repeat for other projects -->
+</section>
+<!-- Contact Me -->
+  <section class="contact">
     <h2>Contact Me</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <button class="download-cv-button">Download CV</button>
+    <div class="contact-info">
+        <p><img src="https://th.bing.com/th/id/OIP.Z2lotQUlRFaoqY7m3Ma89QHaHa?rs=1&pid=ImgDetMain" alt="Email">uttamrimal292@gmail.com</p>
+        <p><img src="https://th.bing.com/th/id/OIP.7wBgzdGJAhF8bPFUfHUuNQHaHa?rs=1&pid=ImgDetMain" alt="Phone"> +977 9840692118</p>
+    </div>
+    <!-- Add your contact form here -->
+</section>
+<!-- Inside your <body> tag -->
+    <div class="section">
+        <h3>Skills</h3>
+        <div class="profile-photo">
+            <img src="/Images/Profile photo.png" alt="Your Photo">
+        </div>
+        <div class="skills-icons">
+            <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png" alt="HTML">
+            <img src="https://th.bing.com/th/id/OIP.yUIb5S_kj98Eg5tT-Onx1AHaHa?rs=1&pid=ImgDetMain" alt="CSS">
+            <img src="https://th.bing.com/th/id/OIP.PHBTJoshbg880IH9z_PB6QAAAA?rs=1&pid=ImgDetMain" alt="JavaScript">
+            <img src="https://th.bing.com/th/id/OIP.UGZFPuO3ExcXZoG6gvOZ9wAAAA?rs=1&pid=ImgDetMain" alt="Premiere Pro">
+            <img src="https://1000logos.net/wp-content/uploads/2020/07/After-Effects-Logo.png" alt="After Effects">
+            <img src="https://th.bing.com/th/id/R.2cfe978f6f2a54819103377f91e7842a?rik=p0Z0EBNb1BOD0w&pid=ImgRaw&r=0" alt="Photoshop">
+            <img src="https://th.bing.com/th/id/OIP.mzB-lVP5jfiafMZTdE4zPAHaHO?rs=1&pid=ImgDetMain" alt="Illustrator">
+            <img src="https://th.bing.com/th/id/OIP.AJH7q9WIMB437Mk1T9KmfAHaHa?rs=1&pid=ImgDetMain" alt="Davinci Resolve">
+            <!-- Add more custom icons here -->
+        </div>
+    </div>
 
+<!-- Inside your <body> tag -->
+    <form id="contact-form" onsubmit="return validateForm()">
+        <!-- Your form fields here -->
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button type="submit">Submit</button>
+    </form>
   <footer>
     <p>&copy; 2024 Uttam Rimal</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
+<script>
+    function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        section.classList.toggle('active');
+    }
+</script>
+
 </html>

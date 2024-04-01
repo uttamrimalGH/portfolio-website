@@ -173,13 +173,16 @@
     </div>
 
 <!-- Inside your <body> tag -->
-    <form id="contact-form" onsubmit="return validateForm()">
-        <!-- Your form fields here -->
-        <input type="text" id="name" placeholder="Your Name">
-        <input type="email" id="email" placeholder="Your Email">
-        <textarea id="message" placeholder="Your Message"></textarea>
-        <button type="submit">Submit</button>
+    <form action="mailto:uttamrimal292@gmail.com" method="POST" enctype="multipart/form-data" name="EmailForm">
+        Name:<br>
+        <input type="text" size="19" name="Contact-Name"><br><br>
+        Email:<br>
+        <input type="email" name="Contact-Email"><br><br>
+        Message:<br>
+        <textarea name="Contact-Message" rows="6" cols="20"></textarea><br><br>
+        <button type="submit">Send</button>
     </form>
+    
   <footer>
     <p>&copy; 2024 Uttam Rimal</p>
   </footer>

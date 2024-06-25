@@ -3,196 +3,954 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Uttam Rimal-Multi talented Professional</title>
-    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet"/>
-    <!-- Inside your <head> tag -->
+    <title>Uttam Rimal - Professional Video Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Logo illustration/Logo-01.png" type="image/x-icon">
+    <style>
+       @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
 
+        .hero-section h1 {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-section p {
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .cta-button {
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .video-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .video-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-image {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .about-text {
+            animation: slideInRight 1s ease-out;
+        }
+
+        .testimonial-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .testimonial-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+       :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8rem 1rem 4rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .featured-work {
+            background-color: var(--background-color);
+            padding: 4rem 1rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .video-item {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .about-section {
+            padding: 4rem 1rem;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .download-cv {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .download-cv:hover {
+            background-color: var(--accent-color);
+        }
+
+        .testimonial-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 4rem 1rem;
+        }
+
+        .testimonial-section h2 {
+            color: #fff;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .contact-section {
+            padding: 4rem 1rem;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .scroll-indicator:hover {
+            background-color: var(--accent-color);
+        }
+
+        .scroll-indicator.visible {
+            opacity: 1;
+        }
+        .testimonial-author a{
+                text-decoration: none;
+              color: white;
+              font-size: larger;
+            }
+
+            @media screen and (max-width: 768px) {
+            .menu-button {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(44, 62, 80, 0.95);
+                padding: 4rem 2rem;
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            nav ul li a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .menu-button.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-button.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-button.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .menu-button span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                margin: 5px 0;
+                transition: 0.4s;
+            }
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                max-width: 100%;
+            }
+            .video-item, .testimonial-item {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .video-item.animate, .testimonial-item.animate {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+             /* Chatbot styles */
+             .chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .chat-icon:hover {
+            background-color: var(--accent-color);
+        }
+
+        .chat-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: var(--accent-color);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .bot-message {
+            background-color: #f0f0f0;
+            color: var(--text-color);
+            align-self: flex-start;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+
+        .chat-input button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .quick-reply {
+            background-color: #f0f0f0;
+            color: var(--text-color);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quick-reply:hover {
+            background-color: #e0e0e0;
+        }    
+            
+    
+    </style>
 </head>
 <body>
-    <header>
-        
-        <div class="dropdown">
-            <button onclick="toggleDropdown()" class="dropbtn">Menu</button>
-            <div id="myDropdown" class="dropdown-content">
-                <nav class="menu">
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#work">My Work</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+    <nav>
+        <button class="menu-button" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured-work">Featured Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <h1>Uttam Rimal</h1>
+        <p>Professional Video Editor crafting compelling visual narratives</p>
+        <a href="#featured-work" class="cta-button">View My Work</a>
+    </section>
+
+    <section id="featured-work" class="featured-work">
+        <div class="container">
+            <h2>Featured Work</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ltIy07agOZg?si=wombXJ-r3LnLg-wg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/IXOTesP1Zyg?si=szlgLjC9qchhgFLy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/0m5qNjDAWTc?si=Jh6G-M01AEZ-Rxjj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/Images/Profile photo 2.jpg" alt="Uttam Rimal - Video Editor">
+                </div>
+                <div class="about-text">
+                    <p>With over a year of experience in video editing, I specialize in creating captivating visual stories that leave a lasting impression. My expertise spans from documentary videos to corporate videos, always focusing on delivering high-quality, impactful content.</p>
+                    <p>I'm passionate about pushing the boundaries of visual storytelling and constantly exploring new techniques and technologies in the field of video editing.</p>
+                    <a href="/Documents/CV Uttam Rimal.pdf" download class="download-cv">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonial-section">
+        <div class="container">
+            <h2>What Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p>"Uttam's editing skills brought our project to life. His attention to detail and creative flair exceeded our expectations."</p>
+                    <p class="testimonial-author"> <a href="https://www.youtube.com/@ShahidersVlog">- Shahid Kathariya</a> (Vlogger/Youtuber)</p>
+                   
+                </div>
+                <div class="testimonial-item">
+                    <p>"Working with Uttam was a pleasure. He understood our vision and delivered a final product that was both professional and engaging."</p>
+                    <p class="testimonial-author"><a href="https://www.facebook.com/utsabpandayy?mibextid=ZbWKwL">- Utsab Pandey</a> (Professional Designer)</p>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Uttam's expertise in video editing helped us create a powerful corporate video that resonated with our audience. Highly recommended!"</p>
+                    <p class="testimonial-author"><a href="https://www.facebook.com/profile.php?id=100026767543221&mibextid=ZbWKwL">- Rabi Kandel</a> (Animator)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <form action="mailto:uttamrimal292@gmail.com" method="POST" enctype="multipart/form-data" name="EmailForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
         
-        
-        
-    </header>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Uttam Rimal. All rights reserved.</p>
+    </footer>
+
+    <div class="scroll-indicator">↑</div>
+        <!-- Chatbot HTML -->
+        <div class="chat-icon" id="chatIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+            </svg>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3>Chat with us</h3>
+                <button class="close-chat" id="closeChat">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button id="sendMessage">Send</button>
+            </div>
+        </div>
+    
+
+    <script>
+       
+       document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-button');
+            const nav = document.querySelector('nav ul');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+
+            // Toggle menu
+            menuButton.addEventListener('click', function() {
+                nav.classList.toggle('show');
+                this.classList.toggle('active');
+                document.body.style.overflow = nav.classList.contains('show') ? 'hidden' : '';
+            });
+
+            // Close menu when clicking a nav link
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('show');
+                    menuButton.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Scroll to top functionality
+            scrollIndicator.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Show/hide scroll indicator
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollIndicator.classList.add('visible');
+                } else {
+                    scrollIndicator.classList.remove('visible');
+                }
+            });
+
+            // Animate elements on scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.video-item, .testimonial-item');
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (elementTop < windowHeight - 50) {
+                        element.classList.add('animate');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Initial check on page load
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Parallax effect for hero section
+            window.addEventListener('scroll', function() {
+                const heroSection = document.querySelector('.hero-section');
+                const scrollPosition = window.pageYOffset;
+                heroSection.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+            });
+
+            // Typewriter effect for hero section subtitle
+            const heroSubtitle = document.querySelector('.hero-section p');
+            const text = heroSubtitle.textContent;
+            heroSubtitle.textContent = '';
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    heroSubtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            setTimeout(typeWriter, 1000); // Start after 1 second
+
+            // Add hover effect to navigation items
+            const navItems = document.querySelectorAll('nav ul li a');
+            navItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+        // Chatbot functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatIcon = document.getElementById('chatIcon');
+            const chatWindow = document.getElementById('chatWindow');
+            const closeChat = document.getElementById('closeChat');
+            const chatMessages = document.getElementById('chatMessages');
+            const userInput = document.getElementById('userInput');
+            const sendMessage = document.getElementById('sendMessage');
+
+            chatIcon.addEventListener('click', () => {
+                chatWindow.style.display = 'flex';
+                chatIcon.style.display = 'none';
+            });
+
+            closeChat.addEventListener('click', () => {
+                chatWindow.style.display = 'none';
+                chatIcon.style.display = 'flex';
+            });
+
+            sendMessage.addEventListener('click', sendUserMessage);
+            userInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendUserMessage();
+                }
+            });
+
+            function sendUserMessage() {
+                const message = userInput.value.trim();
+                if (message) {
+                    addMessage('user', message);
+                    userInput.value = '';
+                    setTimeout(() => botResponse(message), 500);
+                }
+            }
+
+            function addMessage(sender, message) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+                messageElement.textContent = message;
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function botResponse(userMessage) {
+                let botReply = "I'm sorry, I didn't understand that. How else can I help you?";
+                const lowerUserMessage = userMessage.toLowerCase();
+
+                if (lowerUserMessage.includes('hello') || lowerUserMessage.includes('hi')) {
+                    botReply = "Hello! How can I assist you today?";
+                } else if (lowerUserMessage.includes('services') || lowerUserMessage.includes('what do you do')) {
+                    botReply = "I offer professional video editing services. Would you like to know more about my work?";
+                } else if (lowerUserMessage.includes('portfolio') || lowerUserMessage.includes('examples')) {
+                    botReply = "You can find examples of my work in the Featured Work section of my website. Would you like me to guide you there?";
+                } else if (lowerUserMessage.includes('contact') || lowerUserMessage.includes('get in touch')) {
+                    botReply = "You can reach out to me through the contact form on my website. Would you like me to show you where it is?";
+                } else if (lowerUserMessage.includes('price') || lowerUserMessage.includes('cost')) {
+                    botReply = "Pricing depends on the specific requirements of your project. Would you like to discuss your needs in detail?";
+                }
+
+                addMessage('bot', botReply);
+                addQuickReplies();
+            }
+
+            function addQuickReplies() {
+                const quickReplies = [
+                    "Tell me about your services",
+                    "Show me your portfolio",
+                    "How can I contact you?",
+                    "What are your prices?"
+                ];
+
+                const quickRepliesContainer = document.createElement('div');
+                quickRepliesContainer.classList.add('quick-replies');
+
+                quickReplies.forEach(reply => {
+                    const button = document.createElement('button');
+                    button.classList.add('quick-reply');
+                    button.textContent = reply;
+                    button.addEventListener('click', () => {
+                        addMessage('user', reply);
+                        setTimeout(() => botResponse(reply), 500);
+                    });
+                    quickRepliesContainer.appendChild(button);
+                });
+
+                chatMessages.appendChild(quickRepliesContainer);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Initial bot message
+            setTimeout(() => {
+                addMessage('bot', "Hello! How can I help you today?");
+                addQuickReplies();
+            }, 1000);
+        });
+       
+        </script>
+    
    
-     <!-- About Me -->
-     <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>Welcome to My Creative Space!</h1>
-          <p>Hi, I'm Uttam Rimal, a passionate Video Editor and Graphic Designer. </p>
-      </section>
-    <!-- Rest of your content -->
-    <div class="container">
-        <div class="profile">
-            <img src="/Images/Profile photo.png" alt="Your Photo">
-            
-        </div>
-        <div class="text">
-            <p>I am Uttam Rimal.</p>
-            <!-- Text Animation in Body tag-->
-          <p><span id="typed-text"></span></p>
-        
-          <script>
-              const typed = new Typed('#typed-text', {
-                  strings: ["I'm a Web Developer", "I'm a Web Designer", "I'm a Graphic Designer", "I'm a Youtuber", "I'm a Video Editor"],
-                  typeSpeed: 50,
-                  loop: true,
-              });
-          </script>
-        </div>
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61552073694935&mibextid=ZbWKwL"><img src="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-social-media-by-vexels.png" alt="Facebook"></a>
-            <a href="https://twitter.com"><img src="https://www.freepnglogos.com/uploads/twitter-x-logo-png/twitter-x-logo-png-9.png" alt="Twitter"></a>
-            <a href="https://www.instagram.com/rimal2045?igsh=MXU5NjdreGgzd21iZw=="><img src="https://th.bing.com/th/id/R.735dda68880a385ce8cc5be4f3c5fcd6?rik=qSxRw2lCZYy9Mw&riu=http%3a%2f%2fpngimg.com%2fuploads%2finstagram%2finstagram_PNG11.png&ehk=QVCbfkCKi8pJLF08bRkS%2fLeMqLTnJQf402WRaIdN6jE%3d&risl=&pid=ImgRaw&r=0" alt="Instagram"></a>
-            <a href="https://youtube.com/@uttamrimalvlogs?si=ftP_MtmzsFrLdUEp"><img src="https://th.bing.com/th/id/OIP.PvStOe1KB0YXnmrWdXwa8QHaHa?rs=1&pid=ImgDetMain" alt="YouTube"></a>
-        </div>
-        <button class="hire-button">Hire Me</button>
-        <button class="contact-button">Contact</button>
-        
-    
-    </div>
-    
-    
-
-    
-   
-<!-- My Services -->
-<section class="services">
-    <h2>My Services</h2>
-    <div class="service-row">
-        <div class="service">
-            <img src="https://th.bing.com/th/id/OIP.IhGijgoVTEs0_4rPuUXboQHaE8?rs=1&pid=ImgDetMain" alt="Web Development">
-            <p>Web Development</p>
-        </div>
-        <div class="service">
-            <img src="https://th.bing.com/th/id/R.cc67107d3714f5a7a845c162e3345af6?rik=Q3GYQM%2bLAJjD8g&riu=http%3a%2f%2fimages.huffingtonpost.com%2f2016-09-22-1474505349-8662319-WebDesign.jpg&ehk=xTKYvGJKOWd7YJLXdxG%2bqtzh6mYUinXWus4kNhimO8g%3d&risl=&pid=ImgRaw&r=0" alt="Web Designing">
-            <p>Web Designing</p>
-        </div>
-        <div class="service">
-            <img src="https://icon-library.com/images/icon-png-logos/icon-png-logos-7.jpg" alt="Logo Design">
-            <p>Logo Design</p>
-        </div>
-        <div class="service">
-            <img src="https://th.bing.com/th/id/OIP.VFevEEE-1QC6g675fmWylAAAAA?rs=1&pid=ImgDetMain" alt="Reel Advertisement">
-            <p>Reel Advertisement</p>
-        </div>
-        <div class="service">
-            <img src="https://flick.ae/wp-content/uploads/img/services/Post%20production/Video%20Editing.jpeg" alt="Video Editing">
-            <p>Video Editing</p>
-        </div>
-        <div class="service">
-            <img src="https://i2.wp.com/www.easycreativesolutions.com/home/wp-content/uploads/2015/09/kevcfgcottjxvbwxrkci-1.jpg?fit=1920%2C1200&ssl=1" alt="Graphic Design">
-            <p>Graphic Design</p>
-        </div>
-    </div>
-    <!-- Additional services can be added here -->
-</section>
-<!-- My Work -->
-  <section class="work">
-    <h2>My Work</h2>
-    <div class="works">
-        <div class="work-item">
-            <img src="/Projects/ur.jpg" alt="Project 1">
-            <div class="overlay">
-                <p>I am a Graphic Designer and Video Editor. I can help you in making visually appealing Design, Reels and Videos.</p>
-                <button class="see-more-button">See More</button>
-            </div>
-        </div>
-        <div class="work-item">
-            <img src="/Projects/ecommerce1.png" alt="Project 2">
-            <div class="overlay">
-                <p>I design this for a Tshirt Product so that I can sell it on Daraz.</p>
-                <button class="see-more-button">See More</button>
-            </div>
-        </div>
-        <div class="work-item">
-            <img src="/Projects/Nike.jpg" alt="Project 1">
-            <div class="overlay">
-                <p>I made this for Nike Shoes Product Design.</p>
-                <button class="see-more-button">See More</button>
-            </div>
-        </div>
-        <div class="work-item">
-            <img src="/Projects/mobile.jpg" alt="Project 1">
-            <div class="overlay">
-                <p>I designed this for Nothing Phone Product Design.</p>
-                <button class="see-more-button">See More</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Repeat for other projects -->
-</section>
-<!-- Contact Me -->
-  <section class="contact">
-    <h2>Contact Me</h2>
-    <button class="download-cv-button">Download CV</button>
-    <div class="contact-info">
-        <p><img src="https://th.bing.com/th/id/OIP.Z2lotQUlRFaoqY7m3Ma89QHaHa?rs=1&pid=ImgDetMain" alt="Email">uttamrimal292@gmail.com</p>
-        <p><img src="https://th.bing.com/th/id/OIP.7wBgzdGJAhF8bPFUfHUuNQHaHa?rs=1&pid=ImgDetMain" alt="Phone"> +977 9840692118</p>
-    </div>
-    <!-- Add your contact form here -->
-</section>
-<!-- Inside your <body> tag -->
-    <div class="section">
-        <h3>Skills</h3>
-        <div class="profile-photo">
-            <img src="/Images/Profile photo.png" alt="Your Photo">
-        </div>
-        <div class="skills-icons">
-            <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png" alt="HTML">
-            <img src="https://th.bing.com/th/id/OIP.yUIb5S_kj98Eg5tT-Onx1AHaHa?rs=1&pid=ImgDetMain" alt="CSS">
-            <img src="https://th.bing.com/th/id/OIP.PHBTJoshbg880IH9z_PB6QAAAA?rs=1&pid=ImgDetMain" alt="JavaScript">
-            <img src="https://th.bing.com/th/id/OIP.UGZFPuO3ExcXZoG6gvOZ9wAAAA?rs=1&pid=ImgDetMain" alt="Premiere Pro">
-            <img src="https://1000logos.net/wp-content/uploads/2020/07/After-Effects-Logo.png" alt="After Effects">
-            <img src="https://th.bing.com/th/id/R.2cfe978f6f2a54819103377f91e7842a?rik=p0Z0EBNb1BOD0w&pid=ImgRaw&r=0" alt="Photoshop">
-            <img src="https://th.bing.com/th/id/OIP.mzB-lVP5jfiafMZTdE4zPAHaHO?rs=1&pid=ImgDetMain" alt="Illustrator">
-            <img src="https://th.bing.com/th/id/OIP.AJH7q9WIMB437Mk1T9KmfAHaHa?rs=1&pid=ImgDetMain" alt="Davinci Resolve">
-            <!-- Add more custom icons here -->
-        </div>
-    </div>
-
-<!-- Inside your <body> tag -->
-    <form action="mailto:uttamrimal292@gmail.com" method="POST" enctype="multipart/form-data" name="EmailForm">
-        Name:<br>
-        <input type="text" size="19" name="Contact-Name"><br><br>
-        Email:<br>
-        <input type="email" name="Contact-Email"><br><br>
-        Message:<br>
-        <textarea name="Contact-Message" rows="6" cols="20"></textarea><br><br>
-        <button type="submit">Send</button>
-    </form>
-    
-  <footer>
-    <p>&copy; 2024 Uttam Rimal</p>
-  </footer>
-
 </body>
-<script>
-    function toggleSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        section.classList.toggle('active');
-    }
-</script>
-
 </html>
+  

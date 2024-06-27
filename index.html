@@ -948,28 +948,7 @@
             }, 1000);
         });
 
-        // For Contact Form
-        document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        
-        fetch('send_email.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(result => {
-            alert(result);
-            form.reset();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again later.');
-        });
-    });
-});
+       
        
         </script>
     

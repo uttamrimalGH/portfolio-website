@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttam Rimal - Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Logo illustration/Logo-01.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <nav>
+            <button class="menu-button" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#featured-work">Featured Work</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <h1>Blog</h1>
+                <div class="blog-grid">
+                    <article class="blog-post">
+                        <h2>Unleash Your Inner Filmmaker: 10 Beginner-Friendly Video Editing Tools That'll Make You Look Like a Pro</h2>
+                        <p class="post-meta">Posted on July 7, 2024</p>
+                        <p>Discover 10 user-friendly video editing tools that'll transform you from a beginner to a confident creator. From free options to pro-level software, find the perfect match for your editing journey.</p>
+                        <a href="blog-post-1.html" class="read-more">Read More</a>
+                    </article>
+                    
+                    <!-- Add more blog posts as needed -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Uttam Rimal. All rights reserved.</p>
+    </footer>
+
+    <div class="scroll-indicator">↑</div>
+    
+    <!-- Chatbot HTML -->
+    <div class="chat-icon" id="chatIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+            <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+        </svg>
+    </div>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h3>Chat with us</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button id="sendMessage">Send</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

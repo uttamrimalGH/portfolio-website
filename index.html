@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" href="/Logo illustration/Logo-01.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbot-animations.css">
 </head>
 <body>
     <nav>
@@ -113,24 +114,23 @@
     </footer>
 
     <div class="scroll-indicator">↑</div>
-        <!-- Chatbot HTML -->
-        <div class="chat-icon" id="chatIcon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-                <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
-            </svg>
+    <div id="whatsapp-chat-widget" class="whatsapp-chat-widget">
+        <div class="chat-header">
+            <h3>Chat with us on WhatsApp</h3>
+            <button id="close-chat">&times;</button>
         </div>
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                <h3>Chat with us</h3>
-                <button class="close-chat" id="closeChat">&times;</button>
-            </div>
-            <div class="chat-messages" id="chatMessages"></div>
-            <div class="chat-input">
-                <input type="text" id="userInput" placeholder="Type your message...">
-                <button id="sendMessage">Send</button>
-            </div>
+        <div class="chat-body">
+            <div id="chat-messages"></div>
+            <div id="quick-responses"></div>
+            <form id="whatsapp-form">
+                <textarea id="whatsapp-message" placeholder="Type your message here..." required></textarea>
+                <button type="submit">Send on WhatsApp</button>
+            </form>
         </div>
+    </div>
+    <div id="whatsapp-chat-button" class="whatsapp-chat-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+    </div>
         <script src="script.js"></script>
    
 </body>

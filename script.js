@@ -106,100 +106,112 @@ if (document.querySelector('.blog-section')) {
         });
     });
 });
-// Chatbot functionality
+//Whatsapp Script
 document.addEventListener('DOMContentLoaded', function() {
-    const chatIcon = document.getElementById('chatIcon');
-    const chatWindow = document.getElementById('chatWindow');
-    const closeChat = document.getElementById('closeChat');
-    const chatMessages = document.getElementById('chatMessages');
-    const userInput = document.getElementById('userInput');
-    const sendMessage = document.getElementById('sendMessage');
+    const chatButton = document.getElementById('whatsapp-chat-button');
+    const chatWidget = document.getElementById('whatsapp-chat-widget');
+    const closeChat = document.getElementById('close-chat');
+    const whatsappForm = document.getElementById('whatsapp-form');
+    const chatMessages = document.getElementById('chat-messages');
+    const quickResponses = document.getElementById('quick-responses');
 
-    chatIcon.addEventListener('click', () => {
-        chatWindow.style.display = 'flex';
-        chatIcon.style.display = 'none';
+    // Replace with your WhatsApp number
+    const whatsappNumber = '+9779840692118';
+
+    // Quick response options
+    const quickResponseOptions = {
+        'greeting': ['Hello!', 'Hi there!', 'Greetings!'],
+        'inquiry': ['What services do you offer?', 'Can you tell me about your pricing?', 'Do you have any availability?'],
+        'thanks': ['Thank you!', 'Thanks for your help!', 'Appreciate it!']
+    };
+
+    chatButton.addEventListener('click', function() {
+        chatWidget.style.display = 'flex';
+        chatButton.style.display = 'none';
+        addBotMessage("Hello! How can I assist you today?");
+        showQuickResponses('greeting');
     });
 
-    closeChat.addEventListener('click', () => {
-        chatWindow.style.display = 'none';
-        chatIcon.style.display = 'flex';
+    closeChat.addEventListener('click', function() {
+        chatWidget.style.display = 'none';
+        chatButton.style.display = 'flex';
     });
 
-    sendMessage.addEventListener('click', sendUserMessage);
-    userInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendUserMessage();
+    whatsappForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const message = document.getElementById('whatsapp-message').value;
+        if (message.trim() !== '') {
+            addUserMessage(message);
+            document.getElementById('whatsapp-message').value = '';
+            processUserMessage(message);
         }
     });
 
-    function sendUserMessage() {
-        const message = userInput.value.trim();
-        if (message) {
-            addMessage('user', message);
-            userInput.value = '';
-            setTimeout(() => botResponse(message), 500);
-        }
-    }
-
-    function addMessage(sender, message) {
+    function addUserMessage(message) {
         const messageElement = document.createElement('div');
-        messageElement.classList.add('message', sender === 'user' ? 'user-message' : 'bot-message');
+        messageElement.classList.add('message', 'user-message');
         messageElement.textContent = message;
         chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    function botResponse(userMessage) {
-        let botReply = "I'm sorry, I didn't understand that. How else can I help you?";
-        const lowerUserMessage = userMessage.toLowerCase();
-
-        if (lowerUserMessage.includes('hello') || lowerUserMessage.includes('hi')) {
-            botReply = "Hello! How can I assist you today?";
-        } else if (lowerUserMessage.includes('services') || lowerUserMessage.includes('what do you do')) {
-            botReply = "I offer professional video editing services. Would you like to know more about my work?";
-        } else if (lowerUserMessage.includes('portfolio') || lowerUserMessage.includes('examples')) {
-            botReply = "You can find examples of my work in the Featured Work section of my website. Would you like me to guide you there?";
-        } else if (lowerUserMessage.includes('contact') || lowerUserMessage.includes('get in touch')) {
-            botReply = "You can reach out to me through the contact form on my website. Would you like me to show you where it is?";
-        } else if (lowerUserMessage.includes('price') || lowerUserMessage.includes('cost')) {
-            botReply = "Pricing depends on the specific requirements of your project. Would you like to discuss your needs in detail?";
-        }
-
-        addMessage('bot', botReply);
-        addQuickReplies();
-    }
-
-    function addQuickReplies() {
-        const quickReplies = [
-            "Tell me about your services",
-            "Show me your portfolio",
-            "How can I contact you?",
-            "What are your prices?"
-        ];
-
-        const quickRepliesContainer = document.createElement('div');
-        quickRepliesContainer.classList.add('quick-replies');
-
-        quickReplies.forEach(reply => {
-            const button = document.createElement('button');
-            button.classList.add('quick-reply');
-            button.textContent = reply;
-            button.addEventListener('click', () => {
-                addMessage('user', reply);
-                setTimeout(() => botResponse(reply), 500);
-            });
-            quickRepliesContainer.appendChild(button);
-        });
-
-        chatMessages.appendChild(quickRepliesContainer);
+    function addBotMessage(message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'bot-message');
+        messageElement.textContent = message;
+        chatMessages.appendChild(messageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // Initial bot message
-    setTimeout(() => {
-        addMessage('bot', "Hello! How can I help you today?");
-        addQuickReplies();
-    }, 1000);
+    function showQuickResponses(category) {
+        quickResponses.innerHTML = '';
+        quickResponseOptions[category].forEach(response => {
+            const button = document.createElement('button');
+            button.classList.add('quick-response-btn');
+            button.textContent = response;
+            button.addEventListener('click', () => {
+                addUserMessage(response);
+                processUserMessage(response);
+            });
+            quickResponses.appendChild(button);
+        });
+    }
+
+    function processUserMessage(message) {
+        // Simple bot logic
+        if (message.toLowerCase().includes('hello') || message.toLowerCase().includes('hi')) {
+            addBotMessage("Hello! How can I help you today?");
+            showQuickResponses('inquiry');
+        } else if (message.toLowerCase().includes('services') || message.toLowerCase().includes('offer')) {
+            addBotMessage("I offer professional video editing services. Would you like to know more about pricing or availability?");
+            showQuickResponses('inquiry');
+        } else if (message.toLowerCase().includes('price') || message.toLowerCase().includes('cost')) {
+            addBotMessage("Our pricing varies depending on the project. Can you tell me more about what you need?");
+            showQuickResponses('inquiry');
+        } else if (message.toLowerCase().includes('availability') || message.toLowerCase().includes('schedule')) {
+            addBotMessage("I currently have availability for new projects. When would you like to start?");
+            showQuickResponses('thanks');
+        } else if (message.toLowerCase().includes('thank')) {
+            addBotMessage("You're welcome! Is there anything else I can help you with?");
+            showQuickResponses('inquiry');
+        } else {
+            addBotMessage("I'm sorry, I didn't quite understand that. Could you please rephrase or choose from the quick responses?");
+            showQuickResponses('inquiry');
+        }
+    }
+
+    // Show/hide chat button based on scroll position
+    function toggleChatButtonVisibility() {
+        if (window.pageYOffset > 300) {
+            chatButton.style.display = 'flex';
+        } else {
+            chatButton.style.display = 'none';
+        }
+    }
+
+    // Initial check
+    toggleChatButtonVisibility();
+
+    // Listen for scroll events
+    window.addEventListener('scroll', toggleChatButtonVisibility);
 });
-
-
